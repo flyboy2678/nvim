@@ -10,9 +10,6 @@ local opts = { noremap = true, silent = true }
 -- save file
 vim.keymap.set({ "n", "i" }, "<C-s>", "<cmd> w <CR>", opts)
 
--- quit file
-vim.keymap.set("n", "<C-w>", "<cmd> q <CR>", opts)
-
 -- go to normal mode
 vim.keymap.set("i", "jj", "<Esc>", opts)
 
@@ -35,7 +32,7 @@ vim.keymap.set("n", "<Right>", ":vertical +2<CR>", opts)
 -- Buffers
 vim.keymap.set("n", "<Tab>", ":bnext<CR>", opts)
 vim.keymap.set("n", "<S-Tab>", ":bprevious<CR>", opts)
-vim.keymap.set("n", "<leader>x", ":bdelete!<CR>", opts)
+vim.keymap.set("n", "<C-w>", ":bdelete!<CR>", opts)
 vim.keymap.set("n", "<leader>b", "<cmd> enew <CR>", opts)
 
 -- Window management
@@ -59,9 +56,9 @@ vim.keymap.set("n", "S-k", vim.diagnostic.open_float, opts)
 
 -- terminal
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
-vim.keymap.set("n", "<C-`>", function()
+vim.keymap.set("n", "<leader>st", function()
 	vim.cmd.vnew()
 	vim.cmd.term()
 	vim.cmd.wincmd("J")
-	vim.cmd.nvim_win_set_height(0, 5)
-end, opts)
+	vim.api.nvim_win_set_height(0, 5)
+end, { desc = "Open terminal on bottom window" })
