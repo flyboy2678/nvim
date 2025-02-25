@@ -42,4 +42,5 @@ require("lazy").setup({
 	require("plugins.comments"),
 	require("plugins.autoformatter"),
 	require("plugins.misc"),
+	require("plugins.alpha"),
 })

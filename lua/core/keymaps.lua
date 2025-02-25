@@ -33,6 +33,7 @@ vim.keymap.set("n", "<Right>", ":vertical +2<CR>", opts)
 vim.keymap.set("n", "<Tab>", ":bnext<CR>", opts)
 vim.keymap.set("n", "<S-Tab>", ":bprevious<CR>", opts)
 vim.keymap.set("n", "<C-w>", ":bdelete!<CR>", opts)
+vim.keymap.set("t", "<C-w>", "<C-\\><C-n>:bdelete!<CR>", opts)
 vim.keymap.set("n", "<leader>b", "<cmd> enew <CR>", opts)
 
 -- Window management
