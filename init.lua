@@ -9,6 +9,8 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 
+vim.o.shell = "C:\\PROGRA~1\\PowerShell\\7\\pwsh.exe"
+
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
 	local lazyrepo = "https://github.com/folke/lazy.nvim.git"

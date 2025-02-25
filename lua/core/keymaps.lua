@@ -56,3 +56,12 @@ vim.keymap.set("v", ">", ">gv", opts)
 
 -- Diagnostic keymaps
 vim.keymap.set("n", "S-k", vim.diagnostic.open_float, opts)
+
+-- terminal
+vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
+vim.keymap.set("n", "<C-`>", function()
+	vim.cmd.vnew()
+	vim.cmd.term()
+	vim.cmd.wincmd("J")
+	vim.cmd.nvim_win_set_height(0, 5)
+end, opts)
