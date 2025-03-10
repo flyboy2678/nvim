@@ -10,6 +10,13 @@ local opts = { noremap = true, silent = true }
 -- save file
 vim.keymap.set({ "n", "i" }, "<C-s>", "<cmd> w <CR>", opts)
 
+-- To paste contents on the register without losing whats inside
+vim.keymap.set({ "n", "v" }, "<leader>p", '"_dP', opts)
+
+-- Move selected lines up and down in visual and visual line mode
+vim.api.nvim_set_keymap("v", "<S-k>", ":m '<-2<CR>gv=gv", opts)
+vim.api.nvim_set_keymap("v", "<S-j>", ":m '>+1<CR>gv=gv", opts)
+
 -- go to normal mode
 vim.keymap.set("i", "jj", "<Esc>", opts)
 
@@ -26,13 +33,13 @@ vim.keymap.set("n", "<C-d>", "<C-d>zz", opts)
 -- Resize windows arrows
 vim.keymap.set("n", "<Up>", ":resize -2<CR>", opts)
 vim.keymap.set("n", "<Down>", ":resize +2<CR>", opts)
-vim.keymap.set("n", "<Left>", ":vertical -2<CR>", opts)
-vim.keymap.set("n", "<Right>", ":vertical +2<CR>", opts)
+vim.keymap.set("n", "<Left>", ":vertical resize -2<CR>", opts)
+vim.keymap.set("n", "<Right>", ":vertical resize +2<CR>", opts)
 
 -- Buffers
 vim.keymap.set("n", "<Tab>", ":bnext<CR>", opts)
 vim.keymap.set("n", "<S-Tab>", ":bprevious<CR>", opts)
-vim.keymap.set("n", "<C-w>", ":bdelete!<CR>", opts)
+vim.keymap.set("n", "<C-w>", "<cmd>bd<CR>", opts)
 vim.keymap.set("t", "<C-w>", "<C-\\><C-n>:bdelete!<CR>", opts)
 vim.keymap.set("n", "<leader>b", "<cmd> enew <CR>", opts)
 
